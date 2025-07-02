@@ -23,5 +23,7 @@ The metric we are comparing here are MSE/R² in both cases i.e. with and without
 ```
 
 ## How to Run
-1. Use `pip install -r requirements.txt`. This will install all the required packages.
+1. Create a virtual environment using  `python -m venv <venv_name>`.
+2. Activate the virtual environment using  `. <venv_path>/Scripts/activate` on terminal.NOTE : relative/absolute path to the venv both would work..
+3. Use `pip install -r requirements.txt`. This will install all the required packages.
 2. Run the regression models by using command `python regresssion.py`.
