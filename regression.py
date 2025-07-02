@@ -11,7 +11,7 @@ from utils import load_data
 # 0. Functions to train and evaluate a models
 
 def train_and_evaluate_ridge_model(X_train, X_test, y_train, y_test) : # For Ridge Regression
-    model = Ridge()
+    model = Ridge(alpha=0.5, fit_intercept=True, solver='auto')
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
     
@@ -21,7 +21,7 @@ def train_and_evaluate_ridge_model(X_train, X_test, y_train, y_test) : # For Rid
     return mse,r2
 
 def train_and_evaluate_svr_model(X_train, X_test, y_train, y_test) : # For SVR Regression
-    model = SVR()
+    model = SVR(kernel='rbf', C=30, epsilon=0.2)
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
     
@@ -31,7 +31,7 @@ def train_and_evaluate_svr_model(X_train, X_test, y_train, y_test) : # For SVR R
     return mse,r2
 
 def train_and_evaluate_random_forest_model(X_train, X_test, y_train, y_test) : # For Random Forest Regression
-    model = RandomForestRegressor()
+    model = RandomForestRegressor(n_estimators=150, max_depth=12, random_state=17)
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
     
@@ -67,8 +67,10 @@ models = {
 
 }
 
-
-print(f"{'Model':<20} {'MSE':<15} {'R² Score' :<10}")
+print("-" * 50)
+print("Tuned Regression Model Comparison")
+print("-" * 50)
+print(f"{'Tuned Model':<20} {'MSE':<15} {'R² Score' :<10}")
 print("-" * 50)
 
 # 7. Train and evaluate models

@@ -18,6 +18,6 @@ jobs:
       - run: echo "Installing dependencies ...." 
       - name: Install dependencies
         run: pip3 install --no-cache-dir -r requirements.txt
-      - run: echo "Running the regression script ...."
+      - run: echo "Running the regression  with tuned hyper parameters ...."
       - name: Run experiment
         run: python regression.py
