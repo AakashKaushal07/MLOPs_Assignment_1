@@ -1,0 +1,23 @@
+name: Assignment 1 CI - CD
+
+on: [push]
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.10]
+    steps:
+      - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "The name of your branch is ${{ github.ref }}."
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "This job's status is ${{ job.status }}." 
+      - run: echo "Installing dependencies ...." 
+      - name: Install dependencies
+        run: pip3 install --no-cache-dir -r requirements.txt
+      - run: echo "Running the regression script ...."
+      - name: Run experiment
+        run: python regression.py
