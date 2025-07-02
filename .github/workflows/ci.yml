@@ -3,7 +3,7 @@ name: Assignment 1 CI - CD
 on: [push]
 
 jobs:
-  Explore-GitHub-Actions:
+  Automated_CI_CD:
     runs-on: ubuntu-latest
     strategy:
       matrix:
